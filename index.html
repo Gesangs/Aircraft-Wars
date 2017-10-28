@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>飞机大作战</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-status="index">
+    <canvas id="game"></canvas>
+
+    <div id="ui-index">
+        <h1>飞机大作战</h1>
+        <ul>
+            <li class="btn js-start">开始游戏</li>
+            <li class="btn js-setting">游戏设置</li>
+            <li class="btn js-rule">游戏说明</li>
+        </ul>
+    </div>
+
+    <div id="ui-setting">
+        <div>
+            <h4>游戏设置</h4>
+            <ul>
+                <li>背景音乐</li>
+                <li>选择地图</li>
+                <li>选择战机</li>
+            </ul>
+            <button class="btn js-ok">我知道了</button>
+        </div>
+    </div>
+
+    <div id="ui-rule">
+        <div>
+            <h4>游戏说明</h4>
+            <p>通过手指移动飞机，躲避敌机，通过子弹射击敌人得分，游戏无时限。消灭小敌机得100分，消灭大敌机得500分。</p>
+            <button class="btn js-konw">我知道了</button>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/element.js"></script>
+    <script src="js/resource.js"></script>
+    <script src="js/enemy.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
