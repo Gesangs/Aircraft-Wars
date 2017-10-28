@@ -21,6 +21,7 @@ function(callback) {
 function BindEvent() {
     $body.on('click', '.js-start', function() {
         $body.attr('data-status', '')
+        $("#ui-score").show();
         Game.start();
     })
 

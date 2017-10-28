@@ -19,6 +19,7 @@ body {
     position: absolute;
     top: 20px;
     left: 20px;
+    display: none;
 }
 
 #ui-score .score {
