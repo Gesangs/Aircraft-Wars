@@ -6,9 +6,8 @@ var Element = function (opts) {
   this.y = opts.y;
   this.width = opts.width;
   this.height = opts.height;
-  this.speed = opts.speed;
 };
-// 子弹对象原型
+// 物体对象原型
 Element.prototype = {
   move: function(x, y) {
     var addX = x || 0;

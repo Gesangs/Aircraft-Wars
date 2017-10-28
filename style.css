@@ -15,10 +15,19 @@ body {
     background-image: url(img/bg_1.jpg);
     background-size: cover;
 }
+#ui-score {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
 
+#ui-score .score {
+    font-size: 25px;
+}
 #ui-index,
 #ui-setting,
-#ui-rule
+#ui-rule,
+#ui-end
  {
     display: none;
     width: 100%;
@@ -73,7 +82,8 @@ h4 {
 }
 
 #ui-rule .btn,
-#ui-setting .btn {
+#ui-setting .btn,
+#ui-end .btn {
     padding: 5px 10px;
     margin-top: 8px;
     background-color: #070808;
@@ -82,6 +92,7 @@ h4 {
 
 [data-status="index"] #ui-index,
 [data-status="setting"] #ui-setting,
+[data-status="end"] #ui-end,
 [data-status="rule"] #ui-rule {
     display: block;
 }

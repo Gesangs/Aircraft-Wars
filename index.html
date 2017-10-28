@@ -8,7 +8,7 @@
 </head>
 <body data-status="index">
     <canvas id="game"></canvas>
-
+    <div id="ui-score">分数：<span class="score"></span></div>
     <div id="ui-index">
         <h1>飞机大作战</h1>
         <ul>
@@ -37,10 +37,16 @@
             <button class="btn js-konw">我知道了</button>
         </div>
     </div>
+    <div id="ui-end">
+        <h4>游戏结束</h4>
+        <button class="btn js-start">重新开始</button>
+    </div>
     <script src="js/jquery.min.js"></script>
     <script src="js/config.js"></script>
-    <script src="js/element.js"></script>
     <script src="js/resource.js"></script>
+    <script src="js/element.js"></script>
+    <script src="js/plane.js"></script>
+    <script src="js/bullet.js"></script>
     <script src="js/enemy.js"></script>
     <script src="js/main.js"></script>
 </body>

@@ -9,15 +9,14 @@ var Config = {
     width: 20,
     height: 20
   },
-  enemySpeed: 4, // 默认敌人移动距离
-  enemyMaxNum: 5, // 敌人最大数量
+  enemyMaxNum: 7, // 敌人最大数量
   enemySmallSize: {
-    width: 54,
-    height: 40
+    width: 52,
+    height: 37
   },
   enemyBigSize: {
-    width: 130,
-    height: 100
+    width: 125,
+    height: 95
   },
   bulletSpeed: 10, // 默认子弹的移动速度
   resources: {
