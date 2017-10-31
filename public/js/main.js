@@ -134,11 +134,17 @@ var Game = {
                         enemy.booming();
                         break;
                     case 'boomed':
+                    //  记录分数
+                    var audio;
                         if(enemy.enemyType === 'big') {
                             this.score += 500;
                         } else {
                             this.score += 100;
                         }
+                        var sound = "./sound/boom.mp3"
+                       var audio = new Audio(sound);
+                       audio.volume = 0.3;
+                        audio.play();
                         this.enmies.splice(i, 1);
                     break;
                 }
@@ -250,8 +256,8 @@ var Game = {
 function init() {
     resourceHelper.load(Config.resources, function(resources) {
         Game.init();
-        Game.bindTouch();
         BindEvent();
+        Game.bindTouch();
     })
 }
 

@@ -14,7 +14,9 @@ var Enemy = function (opts) {
   this.speedY = opts.speedY;
 };
 // 继承Element的方法
-Enemy.prototype = new Element();
+// Enemy.prototype = new Element();
+Enemy.prototype = Object.create(Element.prototype)
+Enemy.prototype.constructor = Enemy;
 
 /**
  * 方法: down 向下移动

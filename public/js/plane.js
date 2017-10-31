@@ -46,7 +46,7 @@ Plane.prototype.booming = function() {
     this.boomCount += 1;
     if(this.boomCount > 10) {
         this.status = 'boomed';
-        clearInterval(this.shooting)
+        clearInterval(this.shootInterval)
     }
 
     return this;
@@ -57,11 +57,12 @@ Plane.prototype.startShoot = function() {
     var self = this;
     var bulletWidth = this.bulletSize.width;
     var bulletHeight = this.bulletSize.height;
-
     this.shootInterval = setInterval(function() {
         var bulletX = self.x + self.width / 2 -bulletWidth / 2;
         var bulletY = self.y - bulletHeight;
-
+        self.biubiubiu = new Audio("./sound/biubiubiu.wav");
+        self.biubiubiu.volume = 0.1;
+        self.biubiubiu.play();
         self.bullets.push(new Bullet({
             x: bulletX,
             y: bulletY,
@@ -85,6 +86,7 @@ Plane.prototype.hasCrash = function(target) {
   }
 // 绘制子弹
 Plane.prototype.drawBullets = function() {
+    var self = this;
     var bullets = this.bullets;
     var i = bullets.length;
     while(i--) {
