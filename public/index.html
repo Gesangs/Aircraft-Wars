@@ -22,11 +22,28 @@
         <div>
             <h4>游戏设置</h4>
             <ul>
-                <li>背景音乐</li>
-                <li>选择地图</li>
-                <li>选择战机</li>
+                <li>背景音乐
+                    <select class="bgm">
+                        <option value="0">开</option>
+                        <option value="1">关</option>
+                    </select>
+                </li>
+                <li>选择地图
+                    <select class="map">
+                        <option value="1">默认</option>
+                        <option value="2">天空之城</option>
+                        <option value="3">绿野仙踪</option>
+                        <option value="4">地狱火山</option>
+                    </select>
+                </li>
+                <li>选择战机
+                    <select class="color">
+                        <option value="bluePlaneIcon">蓝色</option>
+                        <option value="pinkPlaneIcon">粉红</option>
+                    </select>
+                </li>
             </ul>
-            <button class="btn js-ok">我知道了</button>
+            <button class="btn js-ok">确定</button>
         </div>
     </div>
 
@@ -40,7 +57,9 @@
     <div id="ui-end">
         <h4>游戏结束</h4>
         <button class="btn js-start">重新开始</button>
+        <button class="btn js-back">返回主页</button>
     </div>
+    <audio src="http://dx.sc.chinaz.com/Files/DownLoad/sound1/201502/5481.mp3" loop volume="0.1"></audio>
     <script src="./js/jquery.min.js"></script>
     <script src="./js/config.js"></script>
     <script src="./js/resource.js"></script>

@@ -3,7 +3,7 @@ var $body = $(document.body);
 var $canvas = $('#game');
 var canvas = $canvas.get(0);
 var context = canvas.getContext("2d");
-
+var flyColor = 'bluePlaneIcon';
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var canvasWidth = canvas.clientWidth;
@@ -23,10 +23,16 @@ function BindEvent() {
         $body.attr('data-status', '')
         $("#ui-score").show();
         Game.start();
+        $("audio").attr('src',"http://dx.sc.chinaz.com/Files/DownLoad/sound1/201502/5533.mp3")
+        $("audio")[0].play();
     })
 
     $body.on('click', '.js-setting', function() {
         $body.attr('data-status', 'setting')
+    })
+
+    $body.on('click', '.js-back', function() {
+        $body.attr('data-status', 'index')
     })
 
     $body.on('click', '.js-rule', function() {
@@ -39,6 +45,9 @@ function BindEvent() {
 
     $body.on('click', '.js-ok', function() {
         $body.attr('data-status', 'index')
+        var map = $(".map").val();
+        flyColor = $(".color").val();
+        $body.attr('style', `background-image: url(img/bg_${map}.jpg)`)
     })
 }
 
@@ -73,7 +82,7 @@ var Game = {
             height: options.planeSize.height,
             bulletSize: options.bulletSize,
             bulletSpeed: options.bulletSpeed,
-            icon: resourceHelper.getImage('bluePlaneIcon'),
+            icon: resourceHelper.getImage(flyColor),
             bulletIcon: resourceHelper.getImage('fireIcon'),
             boomIcon: resourceHelper.getImage('enemyBigBoomIcon')
         });
@@ -119,6 +128,9 @@ var Game = {
                 if(plane.status === 'normal') {
                     if(plane.hasCrash(enemy)) {
                         plane.booming();
+                        clearInterval(this.createSmallEnemyInterval);
+                        clearInterval(this.createBigEnemyInterval);
+                        clearInterval(plane.shootInterval)
                     }
                 }
                 switch(enemy.status) {
@@ -141,8 +153,7 @@ var Game = {
                         } else {
                             this.score += 100;
                         }
-                        var sound = "./sound/boom.mp3"
-                       var audio = new Audio(sound);
+                       var audio = new Audio('./sound/boom.wav');
                        audio.volume = 0.3;
                         audio.play();
                         this.enmies.splice(i, 1);
@@ -249,6 +260,8 @@ var Game = {
     },
     end: function() {
         $body.attr('data-status', 'end');
+        $(".score").html(this.score);
+        $("audio")[0].pause();
     }
 }
 

@@ -44,9 +44,8 @@ Plane.prototype.setPosition = function(newPlaneX, newPlaneY) {
 Plane.prototype.booming = function() {
     this.status = 'booming';
     this.boomCount += 1;
-    if(this.boomCount > 10) {
+    if(this.boomCount > 100) {
         this.status = 'boomed';
-        clearInterval(this.shootInterval)
     }
 
     return this;
@@ -61,7 +60,7 @@ Plane.prototype.startShoot = function() {
         var bulletX = self.x + self.width / 2 -bulletWidth / 2;
         var bulletY = self.y - bulletHeight;
         self.biubiubiu = new Audio("./sound/biubiubiu.wav");
-        self.biubiubiu.volume = 0.1;
+        self.biubiubiu.volume = 0.2;
         self.biubiubiu.play();
         self.bullets.push(new Bullet({
             x: bulletX,
