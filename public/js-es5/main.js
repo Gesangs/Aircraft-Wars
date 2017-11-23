@@ -4,6 +4,7 @@ var $canvas = $('#game');
 var canvas = $canvas.get(0);
 var context = canvas.getContext("2d");
 var flyColor = 'bluePlaneIcon';
+var BGM = 1;
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var canvasWidth = canvas.clientWidth;
@@ -24,7 +25,9 @@ function BindEvent() {
         $("#ui-score").show();
         Game.start();
         $("audio").attr('src',"http://dx.sc.chinaz.com/Files/DownLoad/sound1/201502/5533.mp3")
-        $("audio")[0].play();
+        if(BGM) {
+            $("audio")[0].play();
+        }
     })
 
     $body.on('click', '.js-setting', function() {
@@ -47,6 +50,7 @@ function BindEvent() {
         $body.attr('data-status', 'index')
         var map = $(".map").val();
         flyColor = $(".color").val();
+        BGM = $(".bgm").val();
         $body.attr('style', `background-image: url(img/bg_${map}.jpg)`)
     })
 }

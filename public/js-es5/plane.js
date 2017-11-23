@@ -44,7 +44,7 @@ Plane.prototype.setPosition = function(newPlaneX, newPlaneY) {
 Plane.prototype.booming = function() {
     this.status = 'booming';
     this.boomCount += 1;
-    if(this.boomCount > 100) {
+    if(this.boomCount > 10) {
         this.status = 'boomed';
     }
 
